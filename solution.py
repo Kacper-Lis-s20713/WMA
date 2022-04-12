@@ -3,7 +3,7 @@ import os
 
 import matplotlib.pyplot as plt
 import numpy as np
-from cv2 import cv2
+import cv2
 
 
 def main(args):
@@ -89,17 +89,6 @@ def get_outline(image):
 
 
 def count_coins(coins, tray_coords, threshold=None):
-    """
-    Method responsible for counting coins and getting
-    information whether coin is on tray or not
-    :param coins: array of coins (x,y,r)
-    :param tray_coords: coords of tray border (x1,y1,x2,y2)
-    :param threshold: value in % when we decide if coin is 5pln or 5gr.
-           If coin1_radius*(1.0+threshold) < coin2_radius then we know that coin2 and all next
-           coins are significantly bigger than previous. That means all coins after coin2 and
-           coin2 is 5pln.
-    :return: result of processing in string format
-    """
     (x_max, y_max, x_min, y_min) = tray_coords
     coins = coins.tolist()
     coins_5pln = []
